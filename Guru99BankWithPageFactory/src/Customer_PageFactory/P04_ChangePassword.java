@@ -1,6 +1,7 @@
 package Customer_PageFactory;
 
 import java.io.File;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
@@ -11,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import TestData.*;
 
 public class P04_ChangePassword {
 	WebDriver driver;
@@ -63,7 +66,7 @@ public class P04_ChangePassword {
 			catch (NoAlertPresentException Ex) {
 				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				// Code to save screenshot at desired location
-				FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
+				FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\CChangePassword.png"));
 			}
 		Reporter.log(this.driver.getTitle(), true); 
 	}

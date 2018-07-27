@@ -78,7 +78,6 @@ public class P06_CustomisedStatement {
 	  }
 		Reporter.log(this.driver.getTitle(), true);
 	}		
-		
 
 }
 

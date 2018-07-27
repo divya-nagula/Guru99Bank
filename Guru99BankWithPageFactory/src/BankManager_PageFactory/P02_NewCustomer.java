@@ -2,12 +2,15 @@ package BankManager_PageFactory;
 
 import java.util.List;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import TestData.*;
 
 public class P02_NewCustomer {
 
@@ -76,14 +79,14 @@ public class P02_NewCustomer {
 		}else {
 			this.GenderRadio.get(0).click();
 		}
-		this.DOB.sendKeys("09/07/1987");
-		this.Address.sendKeys("Lothkunta");
-		this.City.sendKeys("Hyderabad");
-		this.State.sendKeys("Telangana");
-		this.PinNo.sendKeys("500015");
-		this.MobileNumber.sendKeys("9988776655");
+		this.DOB.sendKeys(TestData.DOB);
+		this.Address.sendKeys(TestData.Address);
+		this.City.sendKeys(TestData.City);
+		this.State.sendKeys(TestData.State);
+		this.PinNo.sendKeys(TestData.PinNo);
+		this.MobileNumber.sendKeys(TestData.MobileNo);
 		this.EmailID.sendKeys(EmailID);
-		this.Password.sendKeys("Welcome@1");
+		this.Password.sendKeys(TestData.mCurrentPassword);
 		this.Submit.click();
 		
 		//Get Confirmation Message

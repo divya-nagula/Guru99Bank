@@ -3,6 +3,7 @@ package BankManager_PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -11,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import TestData.*;
 
 public class P03_EditCustomer {
 
@@ -55,7 +58,7 @@ public class P03_EditCustomer {
 			alt.accept();
 			//Compare error text with expected error value
 			Reporter.log(NoCustomerExist, true);
-			assertEquals(NoCustomerExist, "Customer does not exist!!");
+			assertEquals(NoCustomerExist, Alerts.NoCustomerExist);
 			
 	  }	catch(NoAlertPresentException Ex) {
 		  

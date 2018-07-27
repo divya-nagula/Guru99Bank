@@ -2,6 +2,7 @@ package BankManager_PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
+
 import java.io.File;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -13,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import TestData.*;
 
 public class P07_DeleteAccount {
 
@@ -48,7 +51,7 @@ public class P07_DeleteAccount {
 			alt.accept();
 			//Compare error text with expected error value
 			Reporter.log(WarningTitle, true);
-			assertEquals(WarningTitle, "Do you really want to delete this Account?");
+			assertEquals(WarningTitle, Alerts.AccountDeleteWarning);
 			
 			try {
 				Alert alt2 = driver.switchTo().alert();
@@ -56,18 +59,18 @@ public class P07_DeleteAccount {
 				alt2.accept();
 				//Compare error text with expected error value
 				Reporter.log(DelConfirmationTitle, true);
-				assertEquals(DelConfirmationTitle, "Account Deleted Sucessfully");
+				assertEquals(DelConfirmationTitle, Alerts.AccountDeletionSuccess);
 				
 			} catch(NoAlertPresentException Ex) {
 				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				// Code to save screenshot at desired location
-				FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
+				FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\AccountDelete1.png"));
 			}
 						
 		 }catch(NoAlertPresentException Ex) {
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			// Code to save screenshot at desired location
-			FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
+			FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\AccountDelete2.png"));
 		}
 		
 		Reporter.log(this.driver.getTitle(), true); 

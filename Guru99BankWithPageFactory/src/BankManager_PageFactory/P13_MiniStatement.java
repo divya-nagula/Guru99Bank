@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
+import TestData.*;
+
 public class P13_MiniStatement {
 	
 	WebDriver driver;
@@ -49,7 +51,7 @@ public class P13_MiniStatement {
 			alt.accept();
 			//Compare error text with expected error value
 			Reporter.log(NoAccountExist, true);
-			assertEquals(NoAccountExist, "Account does not exist");
+			assertEquals(NoAccountExist, Alerts.AccountDoesntExist);
 	  }
 		catch(NoAlertPresentException Ex) {
 		String ConfirmationPageTitle = this.driver.getTitle();

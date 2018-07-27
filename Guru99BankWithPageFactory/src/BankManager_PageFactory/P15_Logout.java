@@ -11,6 +11,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+import TestData.*;
+
 public class P15_Logout {
 
 	WebDriver driver;
@@ -28,12 +30,12 @@ public class P15_Logout {
 			alt2.accept();
 			//Compare error text with expected error value
 			Reporter.log(LogoutTitle, true);
-			assertEquals(LogoutTitle, "You Have Succesfully Logged Out!!");
+			assertEquals(LogoutTitle, Alerts.Logout);
 			
 		} catch(NoAlertPresentException Ex) {
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			// Code to save screenshot at desired location
-			FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
+			FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\Logout.png"));
 		}
 		
 		Reporter.log(this.driver.getTitle(), true); 

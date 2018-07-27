@@ -11,6 +11,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+import TestData.*;
+
 public class P07_Logout {
 
 	WebDriver driver;
@@ -28,7 +30,7 @@ public class P07_Logout {
 			alt2.accept();
 			//Compare error text with expected error value
 			Reporter.log(LogoutTitle, true);
-			assertEquals(LogoutTitle, "You Have Succesfully Logged Out!!");
+			assertEquals(LogoutTitle, Alerts.Logout);
 			
 		} catch(NoAlertPresentException Ex) {
 			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);

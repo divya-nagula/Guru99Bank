@@ -2,6 +2,7 @@ package BankManager_PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import TestData.*;
 
 public class P12_BalanceEnquiry {
 	
@@ -49,7 +52,7 @@ public class P12_BalanceEnquiry {
 			alt.accept();
 			//Compare error text with expected error value
 			Reporter.log(NoAccountExist, true);
-			assertEquals(NoAccountExist, "Account does not exist");
+			assertEquals(NoAccountExist, Alerts.AccountDoesntExist);
 	  }		catch(NoAlertPresentException Ex) {
 			
 		String ConfirmationPageTitle = this.driver.getTitle();

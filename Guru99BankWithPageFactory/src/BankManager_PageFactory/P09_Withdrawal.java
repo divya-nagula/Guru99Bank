@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
+import TestData.*;
 public class P09_Withdrawal {
 	
 	WebDriver driver;
@@ -57,7 +58,7 @@ public class P09_Withdrawal {
 			alt.accept();
 			//Compare error text with expected error value
 			Reporter.log(WarningTitle, true);
-			assertEquals(WarningTitle, "Transaction Failed. Account Balance Low!!!");
+			assertEquals(WarningTitle, Alerts.WithdrawalLowBalance);
 		}
 		catch(NoAlertPresentException Ex) {
 		String ConfirmationPageTitle = this.driver.getTitle();

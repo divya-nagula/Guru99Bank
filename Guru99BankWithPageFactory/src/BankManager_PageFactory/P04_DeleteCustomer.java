@@ -15,6 +15,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
+import TestData.*;
+
 public class P04_DeleteCustomer {
 
 	WebDriver driver;
@@ -45,38 +47,38 @@ public class P04_DeleteCustomer {
 		
 		Alert altM = driver.switchTo().alert();
 		String alertTitle = altM.getText();
-		if(alertTitle == "Customer does not exist!!") {
+		if(alertTitle == Alerts.NoCustomerExist) {
 			altM.accept();
 		}
 		else {
-		try {
-			Alert alt = driver.switchTo().alert();
-			String WarningTitle = alt.getText(); //get Content of the alter message
-			alt.accept();
-			//Compare error text with expected error value
-			Reporter.log(WarningTitle, true);
-			assertEquals(WarningTitle, "Do you really want to delete this Customer?");
-		}
-		  catch(NoAlertPresentException Ex) {
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			// Code to save screenshot at desired location
-			FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
-		}
-		
-		try {
-			Alert alt2 = driver.switchTo().alert();
-			DelConfirmationTitle = alt2.getText(); //get Content of the alter message
-			alt2.accept();
-			//Compare error text with expected error value
-			Reporter.log(DelConfirmationTitle, true);
+			try {
+				Alert alt = driver.switchTo().alert();
+				String WarningTitle = alt.getText(); //get Content of the alter message
+				alt.accept();
+				//Compare error text with expected error value
+				Reporter.log(WarningTitle, true);
+				assertEquals(WarningTitle, Alerts.CustomerDeleteWarning);
+			}
+			  catch(NoAlertPresentException Ex) {
+				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				// Code to save screenshot at desired location
+				FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\CustomerDelete1.png"));
+			}
 			
-			
-		} catch(NoAlertPresentException Ex) {
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			// Code to save screenshot at desired location
-			FileUtils.copyFile(scrFile, new File("J:\\Selenium Webdriver\\Guru99\\Guru99Bank\\Screenshots\\screenshot1.png"));
-			
-		}
+			try {
+				Alert alt2 = driver.switchTo().alert();
+				DelConfirmationTitle = alt2.getText(); //get Content of the alter message
+				alt2.accept();
+				//Compare error text with expected error value
+				Reporter.log(DelConfirmationTitle, true);
+				
+				
+			} catch(NoAlertPresentException Ex) {
+				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				// Code to save screenshot at desired location
+				FileUtils.copyFile(scrFile, new File(TestData.Screenshots + "\\CustomerDelete2.png"));
+				
+			}
 		
 		}
 		Reporter.log(this.driver.getTitle(), true); 

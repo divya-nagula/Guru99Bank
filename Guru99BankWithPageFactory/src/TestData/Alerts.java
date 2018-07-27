@@ -22,7 +22,13 @@ public class Alerts {
 	public static final String FundTransferSameAccount = "Payers account No and Payees account No Must Not be Same!!!";
 	public static final String FundTransferLowBalance = "Transfer Failed. Account Balance low!!";	
 	public static final String CustomStatementInvalidDate = "FromDate field should be lower than ToDate field!!";
-
+	public static final String NoCustomerExist = "Customer does not exist!!";
+	public static final String CustomerDeleteWarning = "Do you really want to delete this Customer?";
+	public static final String AccountDeleteWarning = "Do you really want to delete this Account?";
+	public static final String AccountDeletionSuccess = "Account Deleted Sucessfully";
+	public static final String WithdrawalLowBalance = "Transaction Failed. Account Balance Low!!!";
+	public static final String Logout = "You Have Succesfully Logged Out!!";
+		
 	//Customer Account Related Alert Messages
 	public static final String unAuthorizedAccountStatement = "You are not authorize to generate statement of this Account!!";
 	public static final String invalidAccountStatement = "Account does not exist";
@@ -32,4 +38,5 @@ public class Alerts {
 	public static final String sameAccountFundTransfer = "Payers account No and Payees account No Must Not be Same!!!";
 	public static final String unauthorizedAccountMStatement = "You are not authorize to generate statement of this Account!!";
 	public static final String invalidAccountMStatement = "Account does not exist";
+
 }

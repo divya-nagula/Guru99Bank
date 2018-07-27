@@ -9,6 +9,10 @@ public class TestData {
 	//Test URL
 	public static String testURL = "http://demo.guru99.com/V4/";
 	
+	//Screenshot Save Path
+	
+	public static String Screenshots = "D:\\Divya\\SeleniumWebDriver\\Screenshots";
+	
 	//Login IDs
 	public static String mUsername = "mngr115115";
 	public static String mCurrentPassword = "Welcome@Guru99";
@@ -21,5 +25,17 @@ public class TestData {
 	//Driver Paths - provide Folder path for the driver(Note: don't put the file name i.e., chromedriver.exe or geckodriver.exe
 	public static String chromeDriverPath = "D:\\Divya\\SeleniumWebDriver\\chromedriver_win32";
 	public static String geckoDriverPath = "D:\\Divya\\SeleniumWebDriver\\geckodriver-v0.19.1-win64";
+	
+	//New Customer Data, need not be unique, so edit if you want to change!
+	
+	public static String DOB = "11/11/2000";
+	public static String Address = "Kondapaka";
+	public static String City = "Hyderabad";
+	public static String State = "Telangana";
+	public static String PinNo = "100001";
+	public static String MobileNo = "9878685848";
+	
+	
+	
 	
 }

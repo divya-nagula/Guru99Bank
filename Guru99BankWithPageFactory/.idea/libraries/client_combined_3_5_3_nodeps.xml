@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="client-combined-3.5.3-nodeps">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../All Jars/Java Client/client-combined-3.5.3-nodeps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../All Jars/Java Client/guava-23.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

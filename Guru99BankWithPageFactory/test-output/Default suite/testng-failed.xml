@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="test.Customer">
+        <methods>
+          <include name="SC07_MiniStatement"/>
+          <include name="SC14_SC15_MiniStatement"/>
+          <include name="tearDown"/>
+          <include name="SC04_BalanceEnquiry"/>
+          <include name="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry"/>
+          <include name="SC19_Logout"/>
+          <include name="SC16_to_SC18_CustomisedStatement"/>
+          <include name="setUp"/>
+          <include name="SC01_to_SC03_ChangePassword"/>
+        </methods>
+      </class> <!-- test.Customer -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

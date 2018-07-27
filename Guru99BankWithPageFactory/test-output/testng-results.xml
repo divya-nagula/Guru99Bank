@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
+  <reporter-output>
+    <line>
+      <![CDATA[Guru99 Bank Manager HomePage]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of CreateCustomer=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Customer Registration Page]]>
+    </line>
+    <line>
+      <![CDATA[Gtpl Bank Customer Registration Page]]>
+    </line>
+    <line>
+      <![CDATA[Gtpl Bank Customer Registration Page]]>
+    </line>
+    <line>
+      <![CDATA[You Have Succesfully Logged Out!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Home Page]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC01_to_SC03_ChangePassword=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Customer HomePage]]>
+    </line>
+    <line>
+      <![CDATA[Welcome To Customer's Page of Guru99 Bank]]>
+    </line>
+    <line>
+      <![CDATA[Old Password is incorrect]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank New Customer Entry Page]]>
+    </line>
+    <line>
+      <![CDATA[Password is Changed]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Home Page]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Customer HomePage]]>
+    </line>
+    <line>
+      <![CDATA[Welcome To Customer's Page of Guru99 Bank]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC04_BalanceEnquiry=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC07_MiniStatement=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Mini Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[Last Five Transaction Details for Account No: 36721]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Mini Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Fund Transfer Page]]>
+    </line>
+    <line>
+      <![CDATA[Fund Transafer Details for Account No: 36721]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Fund Transfer Page]]>
+    </line>
+    <line>
+      <![CDATA[FromDate field should be lower than ToDate field!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[You are not authorize to Transfer Funds from this account!!]]>
+    </line>
+    <line>
+      <![CDATA[Fund Transfer Entry Page]]>
+    </line>
+    <line>
+      <![CDATA[Account 11111 does not exist!!!]]>
+    </line>
+    <line>
+      <![CDATA[Fund Transfer Entry Page]]>
+    </line>
+    <line>
+      <![CDATA[Payers account No and Payees account No Must Not be Same!!!]]>
+    </line>
+    <line>
+      <![CDATA[Fund Transfer Entry Page]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC14_SC15_MiniStatement=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[You are not authorize to generate statement of this Account!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Mini Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[Account does not exist]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Mini Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[Test Result of SC16_to_SC18_CustomisedStatement=============================================================================]]>
+    </line>
+    <line>
+      <![CDATA[You are not authorize to generate statement of this Account!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[Account does not exist]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[FromDate field should be lower than ToDate field!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Statement Page]]>
+    </line>
+    <line>
+      <![CDATA[You Have Succesfully Logged Out!!]]>
+    </line>
+    <line>
+      <![CDATA[Guru99 Bank Home Page]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="67026" started-at="2018-01-07T11:39:13Z" finished-at="2018-01-07T11:40:20Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="67026" started-at="2018-01-07T11:39:13Z" finished-at="2018-01-07T11:40:20Z">
+      <class name="test.Customer">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.Customer@5185bd]" name="setUp" is-config="true" duration-ms="10234" started-at="2018-01-07T17:09:13Z" finished-at="2018-01-07T17:09:23Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Guru99 Bank Manager HomePage]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="CreateCustomer_CreateAccounts()[pri:0, instance:test.Customer@5185bd]" name="CreateCustomer_CreateAccounts" duration-ms="13941" started-at="2018-01-07T17:09:23Z" finished-at="2018-01-07T17:09:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of CreateCustomer=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Customer Registration Page]]>
+            </line>
+            <line>
+              <![CDATA[Gtpl Bank Customer Registration Page]]>
+            </line>
+            <line>
+              <![CDATA[Gtpl Bank Customer Registration Page]]>
+            </line>
+            <line>
+              <![CDATA[You Have Succesfully Logged Out!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Home Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CreateCustomer_CreateAccounts -->
+        <test-method status="PASS" signature="SC01_to_SC03_ChangePassword()[pri:0, instance:test.Customer@5185bd]" name="SC01_to_SC03_ChangePassword" duration-ms="8217" started-at="2018-01-07T17:09:37Z" finished-at="2018-01-07T17:09:45Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC01_to_SC03_ChangePassword=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Customer HomePage]]>
+            </line>
+            <line>
+              <![CDATA[Welcome To Customer's Page of Guru99 Bank]]>
+            </line>
+            <line>
+              <![CDATA[Old Password is incorrect]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank New Customer Entry Page]]>
+            </line>
+            <line>
+              <![CDATA[Password is Changed]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Home Page]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Customer HomePage]]>
+            </line>
+            <line>
+              <![CDATA[Welcome To Customer's Page of Guru99 Bank]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC01_to_SC03_ChangePassword -->
+        <test-method status="PASS" signature="SC04_BalanceEnquiry()[pri:0, instance:test.Customer@5185bd]" name="SC04_BalanceEnquiry" duration-ms="5220" started-at="2018-01-07T17:09:45Z" finished-at="2018-01-07T17:09:50Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC04_BalanceEnquiry=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Balance Enquiry Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC04_BalanceEnquiry -->
+        <test-method status="PASS" signature="SC07_MiniStatement()[pri:0, instance:test.Customer@5185bd]" name="SC07_MiniStatement" duration-ms="1801" started-at="2018-01-07T17:09:50Z" finished-at="2018-01-07T17:09:52Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC07_MiniStatement=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Mini Statement Page]]>
+            </line>
+            <line>
+              <![CDATA[Last Five Transaction Details for Account No: 36721]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Mini Statement Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC07_MiniStatement -->
+        <test-method status="PASS" signature="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry()[pri:0, instance:test.Customer@5185bd]" name="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry" duration-ms="14990" started-at="2018-01-07T17:09:52Z" finished-at="2018-01-07T17:10:07Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Fund Transfer Page]]>
+            </line>
+            <line>
+              <![CDATA[Fund Transafer Details for Account No: 36721]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Fund Transfer Page]]>
+            </line>
+            <line>
+              <![CDATA[FromDate field should be lower than ToDate field!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Statement Page]]>
+            </line>
+            <line>
+              <![CDATA[You are not authorize to Transfer Funds from this account!!]]>
+            </line>
+            <line>
+              <![CDATA[Fund Transfer Entry Page]]>
+            </line>
+            <line>
+              <![CDATA[Account 11111 does not exist!!!]]>
+            </line>
+            <line>
+              <![CDATA[Fund Transfer Entry Page]]>
+            </line>
+            <line>
+              <![CDATA[Payers account No and Payees account No Must Not be Same!!!]]>
+            </line>
+            <line>
+              <![CDATA[Fund Transfer Entry Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry -->
+        <test-method status="PASS" signature="SC14_SC15_MiniStatement()[pri:0, instance:test.Customer@5185bd]" name="SC14_SC15_MiniStatement" duration-ms="1616" started-at="2018-01-07T17:10:07Z" finished-at="2018-01-07T17:10:09Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC14_SC15_MiniStatement=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[You are not authorize to generate statement of this Account!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Mini Statement Page]]>
+            </line>
+            <line>
+              <![CDATA[Account does not exist]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Mini Statement Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC14_SC15_MiniStatement -->
+        <test-method status="PASS" signature="SC16_to_SC18_CustomisedStatement()[pri:0, instance:test.Customer@5185bd]" name="SC16_to_SC18_CustomisedStatement" duration-ms="8636" started-at="2018-01-07T17:10:09Z" finished-at="2018-01-07T17:10:17Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Result of SC16_to_SC18_CustomisedStatement=============================================================================]]>
+            </line>
+            <line>
+              <![CDATA[You are not authorize to generate statement of this Account!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Statement Page]]>
+            </line>
+            <line>
+              <![CDATA[Account does not exist]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Statement Page]]>
+            </line>
+            <line>
+              <![CDATA[FromDate field should be lower than ToDate field!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Statement Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC16_to_SC18_CustomisedStatement -->
+        <test-method status="PASS" signature="SC19_Logout()[pri:0, instance:test.Customer@5185bd]" name="SC19_Logout" duration-ms="1513" started-at="2018-01-07T17:10:17Z" finished-at="2018-01-07T17:10:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[You Have Succesfully Logged Out!!]]>
+            </line>
+            <line>
+              <![CDATA[Guru99 Bank Home Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SC19_Logout -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.Customer@5185bd]" name="tearDown" is-config="true" duration-ms="785" started-at="2018-01-07T17:10:19Z" finished-at="2018-01-07T17:10:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.Customer -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

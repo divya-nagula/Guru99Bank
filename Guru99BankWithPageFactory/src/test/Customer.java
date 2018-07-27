@@ -42,7 +42,7 @@ public class Customer {
 		  	 objManagerLogin = new BankManager_PageFactory.P00_Login(driver);
 			//login to application
 			
-			objManagerLogin.loginToGuru99("mngr115115","Welcome@Guru99");
+			objManagerLogin.loginToGuru99(TestData.mUsername,TestData.mCurrentPassword);
 			// go the next page
 		}
 
@@ -53,7 +53,7 @@ public class Customer {
 		  
 			P02_NewCustomer objCustomer = new P02_NewCustomer(driver);
 			
-			objCustomer.CreateCustomer("bittu101@test.com");
+			objCustomer.CreateCustomer(TestData.Customer1);
 			P02_NewCustomer.Continue.click();
 			CustomerID = P02_NewCustomer.CustomerID;
 			
@@ -82,10 +82,10 @@ public class Customer {
 		  Reporter.log("\n"+"Test Result of SC01_to_SC03_ChangePassword" + "\n" + "=============================================================================", true);
 		    
 		    objCustomerLogin = new Customer_PageFactory.P00_Login(driver);
-			objCustomerLogin.loginToGuru99(CustomerID, "Welcome@1");
+			objCustomerLogin.loginToGuru99(CustomerID, TestData.cCurrentPassword);
 		    
 			P04_ChangePassword objPassword = new P04_ChangePassword(driver);
-			objPassword.Change_Password("invalid", "Welcome@1", "Welcome@1");
+			objPassword.Change_Password("invalid", TestData.cNewPassword, TestData.cNewPassword);
 			assertEquals(P04_ChangePassword.alertTitle, "Old Password is incorrect");
 				
 			WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -94,7 +94,7 @@ public class Customer {
 			String finalTitle = driver.getTitle();
 			assertEquals(finalTitle, P04_ChangePassword.PageTitle);
 			
-			objPassword.Change_Password("Welcome@1", "Welcome@1", "Welcome@1");
+			objPassword.Change_Password(TestData.cCurrentPassword, TestData.cNewPassword, TestData.cNewPassword);
 			assertEquals(P04_ChangePassword.alertTitle, "Password is Changed");	
 			
 			WebDriverWait wait2 = new WebDriverWait(driver, 20);
@@ -103,7 +103,7 @@ public class Customer {
 			String finalTitle2 = driver.getTitle();
 			assertEquals(finalTitle2, P00_Login.PageTitle);
 			
-			objCustomerLogin.loginToGuru99(CustomerID, "Welcome@1");
+			objCustomerLogin.loginToGuru99(CustomerID, TestData.cNewPassword);
 	  }
 	  
 	  @Test

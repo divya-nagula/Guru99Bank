@@ -52,7 +52,7 @@ public class BankManager {
 		  	 objLogin = new P00_Login(driver);
 			//login to application
 			
-			objLogin.loginToGuru99("mngr115115","Welcome@Guru99");
+			objLogin.loginToGuru99(TestData.mUsername,TestData.mCurrentPassword);
 			// go the next page
 		}
 	  
@@ -62,7 +62,7 @@ public class BankManager {
 		  
 		P11_ChangePassword objPassword = new P11_ChangePassword(driver);
 		
-		objPassword.Change_Password("invalid", "Welcome@Guru99", "Welcome@Guru99");
+		objPassword.Change_Password("invalid", TestData.mNewPassword, TestData.mNewPassword);
 		assertEquals(P11_ChangePassword.alertTitle, "Old Password is incorrect");
 			
 		WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -71,7 +71,7 @@ public class BankManager {
 		String finalTitle = driver.getTitle();
 		assertEquals(finalTitle, P11_ChangePassword.PageTitle);
 		
-		objPassword.Change_Password("Welcome@Guru99", "Welcome@Guru99", "Welcome@Guru99");
+		objPassword.Change_Password(TestData.mCurrentPassword, TestData.mNewPassword, TestData.mNewPassword);
 		assertEquals(P11_ChangePassword.alertTitle, "Password is Changed");	
 		
 		WebDriverWait wait2 = new WebDriverWait(driver, 20);
@@ -80,7 +80,8 @@ public class BankManager {
 		String finalTitle2 = driver.getTitle();
 		assertEquals(finalTitle2, P00_Login.PageTitle);
 		
-		objLogin.loginToGuru99("mngr115115", "Welcome@Guru99");
+		objLogin.loginToGuru99(TestData.mUsername, TestData.mNewPassword);
+		
 	  }
 	  
 	  @Test
@@ -89,7 +90,7 @@ public class BankManager {
 		  
 		P02_NewCustomer objCustomer1 = new P02_NewCustomer(driver);
 		
-		objCustomer1.CreateCustomer("bittu69@test.com");
+		objCustomer1.CreateCustomer(TestData.Customer1);
 		P02_NewCustomer.Continue.click();
 		CustomerID1 = P02_NewCustomer.CustomerID;
 		
@@ -99,7 +100,7 @@ public class BankManager {
 		assertEquals(Title, P00_Login.HomePageTitle);
 		
 		P02_NewCustomer objCustomer2 = new P02_NewCustomer(driver);
-		objCustomer2.CreateCustomer("bittu70@test.com");
+		objCustomer2.CreateCustomer(TestData.Customer2);
 		P02_NewCustomer.Continue.click();
 		CustomerID2 = P02_NewCustomer.CustomerID;
 		

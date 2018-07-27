@@ -77,7 +77,9 @@ public class BankManager {
 		assertEquals(finalTitle, P11_ChangePassword.PageTitle);
 		
 		objPassword.Change_Password(TestData.mCurrentPassword, TestData.mNewPassword, TestData.mNewPassword);
-		assertEquals(P11_ChangePassword.alertTitle, Alerts.passwordChangeSuccessful);	
+		assertEquals(P11_ChangePassword.alertTitle, Alerts.passwordChangeSuccessful);
+		
+		TestData.cCurrentPassword = TestData.cNewPassword;
 		
 		WebDriverWait wait2 = new WebDriverWait(driver, 20);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.name("uid")));

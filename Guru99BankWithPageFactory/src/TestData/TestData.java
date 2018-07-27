@@ -4,6 +4,8 @@
 
 package TestData;
 
+import TestSuite.*;
+
 public class TestData {
 
 	//Test URL
@@ -13,9 +15,13 @@ public class TestData {
 	
 	public static String Screenshots = "D:\\Divya\\SeleniumWebDriver\\Screenshots";
 	
+	//Email ID for manager access generation
+	
+	public static String memailID = "divya.nagula@gmail.com";
+	
 	//Login IDs
-	public static String mUsername = "mngr115115";
-	public static String mCurrentPassword = "Welcome@Guru99";
+	public static String mUsername = ManagerSignup.UserID;
+	public static String mCurrentPassword = ManagerSignup.Password;
 	public static String mNewPassword = "Welcome@Guru99";
 	public static String Customer1 = "test901@test.com";
 	public static String Customer2 = "test902@test.com";

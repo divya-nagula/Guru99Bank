@@ -31,7 +31,7 @@ public class Customer {
 	  
 	  @BeforeTest
 	  public void setUp(){
-			System.setProperty("webdriver.chrome.driver", "J:\\Selenium Webdriver\\Browser Drivers\\chromedriver_win32\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath + "\\chromedriver.exe");
 			driver = new ChromeDriver(); 
 		  	
 		  	//driver = new HtmlUnitDriver();

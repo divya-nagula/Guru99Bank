@@ -8,5 +8,6 @@ public class TestData {
 	static String Customer1 = "test901@test.com";
 	static String Customer2 = "test902@test.com";
 	static String cCurrentPassword = "Welcome@1";
-	static String cNewPassword = "Welcome@1";				
+	static String cNewPassword = "Welcome@1";	
+	static String chromeDriverPath = "D:\\Divya\\SeleniumWebDriver\\chromedriver_win32";
 }

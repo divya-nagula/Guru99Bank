@@ -1,4 +1,12 @@
-package test;
+/*
+ * Before running this file, edit the test data in TestData.java
+ */
+
+/* This class tests the complete functionality 
+ * of Guru99 Bank Manager Login
+*/
+
+package TestSuite;
 
 import static org.testng.Assert.assertEquals;
 
@@ -14,23 +22,13 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import BankManager_PageFactory.P00_Login;
-import BankManager_PageFactory.P02_NewCustomer;
-import BankManager_PageFactory.P03_EditCustomer;
-import BankManager_PageFactory.P04_DeleteCustomer;
-import BankManager_PageFactory.P05_NewAccount;
-import BankManager_PageFactory.P06_EditAccount;
-import BankManager_PageFactory.P07_DeleteAccount;
-import BankManager_PageFactory.P08_Deposit;
-import BankManager_PageFactory.P09_Withdrawal;
-import BankManager_PageFactory.P10_FundTransfer;
-import BankManager_PageFactory.P11_ChangePassword;
-import BankManager_PageFactory.P12_BalanceEnquiry;
-import BankManager_PageFactory.P13_MiniStatement;
-import BankManager_PageFactory.P14_CustomisedStatement;
-import BankManager_PageFactory.P15_Logout;
-
+import BankManager_PageFactory.*;
+import TestData.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+
+//use above import for testing in Headless Browser
 
 public class BankManager {
 	
@@ -41,12 +39,17 @@ public class BankManager {
 	  
 	  @BeforeTest
 	  public void setUp(){
+		    //Use Chrome Browser 
 			System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath + "\\chromedriver.exe");
 			driver = new ChromeDriver(); 
 		  	
+			//Use FireFox Browser(comment above two lines and uncomment below two lines)
+			//System.setProperty("webdriver.firefox.marionette", TestData.geckoDriverPath + "\\geckodriver.exe");
+			//driver = new FirefoxDriver();
+			 
 		  	//driver = new HtmlUnitDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.get("http://demo.guru99.com/V4/");
+			driver.get(TestData.testURL);
 				  
 			//Create Login Page object	
 		  	 objLogin = new P00_Login(driver);
@@ -56,14 +59,16 @@ public class BankManager {
 			// go the next page
 		}
 	  
+	  //Test Cases start here 
+	  
 	  @Test
 	  public void SM01_to_SM03_ChangePassword() throws Exception {
-		Reporter.log("\n"+"Test Result of SM01_to_SM03_ChangePassword" + "\n" + "=============================================================================", true);
+		Reporter.log("\n"+"Test Result of SM01_to_SM03_ChangePassword" + "\n" + Alerts.testCaseDivider, true);
 		  
 		P11_ChangePassword objPassword = new P11_ChangePassword(driver);
 		
 		objPassword.Change_Password("invalid", TestData.mNewPassword, TestData.mNewPassword);
-		assertEquals(P11_ChangePassword.alertTitle, "Old Password is incorrect");
+		assertEquals(P11_ChangePassword.alertTitle, Alerts.incorrectOldPassword);
 			
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("oldpassword")));
@@ -72,7 +77,7 @@ public class BankManager {
 		assertEquals(finalTitle, P11_ChangePassword.PageTitle);
 		
 		objPassword.Change_Password(TestData.mCurrentPassword, TestData.mNewPassword, TestData.mNewPassword);
-		assertEquals(P11_ChangePassword.alertTitle, "Password is Changed");	
+		assertEquals(P11_ChangePassword.alertTitle, Alerts.passwordChangeSuccessful);	
 		
 		WebDriverWait wait2 = new WebDriverWait(driver, 20);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.name("uid")));
@@ -86,7 +91,7 @@ public class BankManager {
 	  
 	  @Test
 	  public void SM04_CreateCustomer() throws Exception {
-		Reporter.log("\n" + "Test Result of SM04_CreateCustomer" + "\n" + "=============================================================================", true );
+		Reporter.log("\n" + "Test Result of SM04_CreateCustomer" + "\n" + Alerts.testCaseDivider, true );
 		  
 		P02_NewCustomer objCustomer1 = new P02_NewCustomer(driver);
 		
@@ -113,7 +118,7 @@ public class BankManager {
 		
 	  @Test
 	  public void SM05_NewAccount() throws Exception{
-		Reporter.log("\n" + "Test Result of SM05_NewAccount" + "\n" + "=============================================================================", true );
+		Reporter.log("\n" + "Test Result of SM05_NewAccount" + "\n" + Alerts.testCaseDivider, true );
 		
 		P05_NewAccount objAccount1 = new P05_NewAccount(driver);
 		objAccount1.CreateAccount(CustomerID1, "Current", "1000");
@@ -138,13 +143,12 @@ public class BankManager {
 		
 		String Title2 = driver.getTitle();
 		assertEquals(Title2, P00_Login.HomePageTitle);
-		
-		
+				
 	}
 
 	  @Test
 	  public void SM06_to_SM10_DeleteAccount() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM06_to_SM10_DeleteAccount" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM06_to_SM10_DeleteAccount" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P07_DeleteAccount objAccount = new P07_DeleteAccount(driver);
 		  objAccount.DeleteAccount(AccountID2);
@@ -160,28 +164,28 @@ public class BankManager {
 		  
 		  P14_CustomisedStatement objCStatement = new P14_CustomisedStatement(driver);
 		  objCStatement.CustomisedStatement(AccountID2, "01/01/2017", "31/12/2018", "0", "100");
-		  assertEquals(P14_CustomisedStatement.WarningTitle, "Account does not exist");
+		  assertEquals(P14_CustomisedStatement.WarningTitle, Alerts.AccountDoesntExist);
 	  }
 	  
 	  @Test
 	  public void SM11_SM12_DeleteCustomerWithAccounts() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM11_SM12_DeleteCustomerWithAccounts" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM11_SM12_DeleteCustomerWithAccounts" + "\n" + Alerts.testCaseDivider, true );
 		  
 		    P04_DeleteCustomer objCustomer = new P04_DeleteCustomer(driver);
 			objCustomer.Delete_Customer(CustomerID1);
 		    
-			assertEquals(P04_DeleteCustomer.DelConfirmationTitle, "Customer could not be deleted!!. First delete all accounts of this customer then delete the customer");
+			assertEquals(P04_DeleteCustomer.DelConfirmationTitle, Alerts.DeleteCustomerWithAccounts);
 			
 		  }
 
 	  @Test
 	  public void SM13_to_SM15_DeleteCustomerWithoutAccounts() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM13_to_SM15_DeleteCustomerWithoutAccounts" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM13_to_SM15_DeleteCustomerWithoutAccounts" + "\n" + Alerts.testCaseDivider, true );
 		    		  
 		    P04_DeleteCustomer objCustomer = new P04_DeleteCustomer(driver);
 			objCustomer.Delete_Customer(CustomerID2);
 			
-			assertEquals(P04_DeleteCustomer.DelConfirmationTitle, "Customer deleted Successfully");
+			assertEquals(P04_DeleteCustomer.DelConfirmationTitle, Alerts.DeleteCustomerWithoutAccounts);
 								
 			P03_EditCustomer objECustomer = new P03_EditCustomer(driver);
 			objECustomer.Edit_Customer(CustomerID2, "New Address");
@@ -189,7 +193,7 @@ public class BankManager {
 
 	  @Test
 	  public void SM16_to_SM22_FundsTransfer_CustomizedStatement() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM16_to_SM22_FundsTransfer_CustomizedStatement" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM16_to_SM22_FundsTransfer_CustomizedStatement" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P10_FundTransfer objAccount = new P10_FundTransfer(driver);
 		  objAccount.FundTransfer(AccountID1, "37714", "50", "Transfer");
@@ -203,24 +207,24 @@ public class BankManager {
 		  
 		  P10_FundTransfer invalidAccount = new P10_FundTransfer(driver);
 		  invalidAccount.FundTransfer("36456", "37714", "100", "Transfer");
-		  assertEquals(P10_FundTransfer.AlertTitle, "Account 36456does not exist!!!");
+		  assertEquals(P10_FundTransfer.AlertTitle, Alerts.FundTransferInvalidAccount);
 		  
 		  P10_FundTransfer unAuthorisedAccount = new P10_FundTransfer(driver);
 		  unAuthorisedAccount.FundTransfer("37714", "37717", "100", "Transfer");
-		  assertEquals(P10_FundTransfer.AlertTitle, "You are not authorize to Transfer Funds from this account!!");
+		  assertEquals(P10_FundTransfer.AlertTitle, Alerts.FundTransferUnauthorizedAccount);
 		  
 		  P10_FundTransfer sameAccount = new P10_FundTransfer(driver);
 		  sameAccount.FundTransfer(AccountID1, AccountID1 , "100", "Transfer");
-		  assertEquals(P10_FundTransfer.AlertTitle, "Payers account No and Payees account No Must Not be Same!!!");
+		  assertEquals(P10_FundTransfer.AlertTitle, Alerts.FundTransferSameAccount);
 		  
 		  P10_FundTransfer lowBalance = new P10_FundTransfer(driver);
 		  lowBalance.FundTransfer(AccountID1, "37714" , "100000", "Transfer");
-		  assertEquals(P10_FundTransfer.AlertTitle, "Transfer Failed. Account Balance low!!");
+		  assertEquals(P10_FundTransfer.AlertTitle, Alerts.FundTransferLowBalance);
 	  }
 
 	  @Test
 	  public void SM23_EditCustomer() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM23_EditCustomer" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM23_EditCustomer" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P03_EditCustomer objECustomer = new P03_EditCustomer(driver);
 		  objECustomer.Edit_Customer(CustomerID1, "New Address");
@@ -228,7 +232,7 @@ public class BankManager {
 
 	  @Test
 	  public void SM24_SM25_Deposit() throws Exception{
-		  Reporter.log("\n" + "Test Result of SM24_SM25_Deposit" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of SM24_SM25_Deposit" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P08_Deposit objAccount = new P08_Deposit(driver);
 		  objAccount.Deposit(AccountID1, "1000", "Deposited");
@@ -240,7 +244,7 @@ public class BankManager {
 
 	  @Test
 	  public void SM27_to_SM30_Withdrawal_MiniStatement_Balance() throws Exception{
-		  Reporter.log("\n" + "SM27_to_SM30_Withdrawal_MiniStatement_Balance" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "SM27_to_SM30_Withdrawal_MiniStatement_Balance" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P09_Withdrawal objAccount = new P09_Withdrawal(driver);
 		  objAccount.Withdrawal(AccountID1, "1000", "Withdrawal Made");
@@ -258,20 +262,20 @@ public class BankManager {
 
 	  @Test
 	  public void SM31_to_SM33_CustomisedStatement() throws Exception{
-		  Reporter.log("\n" + "SM31_to_SM33_CustomisedStatement" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "SM31_to_SM33_CustomisedStatement" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P14_CustomisedStatement objCStatement = new P14_CustomisedStatement(driver);
 		  objCStatement.CustomisedStatement(AccountID1, "01/01/2017", "12/31/2018", "0", "100");
 		  
-		  P14_CustomisedStatement objCStatement1 = new P14_CustomisedStatement(driver);
-		  objCStatement1.CustomisedStatement(AccountID1, "01/01/2019", "12/31/2018", "0", "100");
-		  assertEquals(P14_CustomisedStatement.WarningTitle, "FromDate field should be lower than ToDate field!!");
+		  P14_CustomisedStatement invalidDate = new P14_CustomisedStatement(driver);
+		  invalidDate.CustomisedStatement(AccountID1, "01/01/2019", "12/31/2018", "0", "100");
+		  assertEquals(P14_CustomisedStatement.WarningTitle, Alerts.CustomStatementInvalidDate);
 		  
 	 }
 	  
 	  @Test
 	  public void SM34_EditAccount() throws Exception{
-		  Reporter.log("\n" + "SM34_Edit Account" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "SM34_Edit Account" + "\n" + Alerts.testCaseDivider, true );
 		  
 		  P06_EditAccount objAccount = new P06_EditAccount(driver);
 		  objAccount.Edit_Account(AccountID1, "Savings");
@@ -287,7 +291,7 @@ public class BankManager {
 	  public void SM36_LoginCustomer()  throws Exception{
 		  
 		 	objLogin = new P00_Login(driver);
-			objLogin.loginToGuru99(CustomerID1,"Welcome@1");
+			objLogin.loginToGuru99(CustomerID1,TestData.cCurrentPassword);
 			
 			String Title = driver.getTitle();
 			Reporter.log(Title, true);

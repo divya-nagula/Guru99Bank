@@ -1,4 +1,12 @@
-package test;
+/*
+ * Before running this file, edit the test data in TestData.java
+ */
+
+/* This class tests the complete functionality 
+ * of Guru99 Customer Login
+*/
+
+package TestSuite;
 
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertEquals;
@@ -8,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +28,7 @@ import org.testng.annotations.Test;
 import BankManager_PageFactory.*;
 import BankManager_PageFactory.P00_Login;
 import Customer_PageFactory.*;
+import TestData.*;
 
 public class Customer {
 	  WebDriver driver;
@@ -33,10 +43,14 @@ public class Customer {
 	  public void setUp(){
 			System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath + "\\chromedriver.exe");
 			driver = new ChromeDriver(); 
+			
+			//Use FireFox Browser(comment above two lines and uncomment below two lines)
+			//System.setProperty("webdriver.firefox.marionette", TestData.geckoDriverPath + "\\geckodriver.exe");
+			//driver = new FirefoxDriver();
 		  	
 		  	//driver = new HtmlUnitDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.get("http://demo.guru99.com/V4/");
+			driver.get(TestData.testURL);
 				  
 			//Create Login Page object	
 		  	 objManagerLogin = new BankManager_PageFactory.P00_Login(driver);
@@ -46,10 +60,12 @@ public class Customer {
 			// go the next page
 		}
 
+	  //Test Cases start here 
+	  
 	  @Test
 	  public void CreateCustomer_CreateAccounts() throws Exception {
 		  
-		  Reporter.log("\n" + "Test Result of CreateCustomer" + "\n" + "=============================================================================", true );
+		  Reporter.log("\n" + "Test Result of CreateCustomer" + "\n" + Alerts.testCaseDivider, true );
 		  
 			P02_NewCustomer objCustomer = new P02_NewCustomer(driver);
 			
@@ -79,7 +95,7 @@ public class Customer {
 	  
 	  @Test
 	  public void SC01_to_SC03_ChangePassword() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC01_to_SC03_ChangePassword" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC01_to_SC03_ChangePassword" + "\n" + Alerts.testCaseDivider, true);
 		    
 		    objCustomerLogin = new Customer_PageFactory.P00_Login(driver);
 			objCustomerLogin.loginToGuru99(CustomerID, TestData.cCurrentPassword);
@@ -108,7 +124,7 @@ public class Customer {
 	  
 	  @Test
 	  public void SC04_BalanceEnquiry() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC04_BalanceEnquiry" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC04_BalanceEnquiry" + "\n" + Alerts.testCaseDivider, true);
 		  
 		  P02_BalanceEnquiry objBEnquiry1 = new P02_BalanceEnquiry(driver);
 		  objBEnquiry1.BalanceEnquiry(AccountID1);
@@ -120,7 +136,7 @@ public class Customer {
 	  
 	  @Test
 	  public void SC07_MiniStatement() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC07_MiniStatement" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC07_MiniStatement" + "\n" + Alerts.testCaseDivider, true);
 		  
 		  P05_MiniStatement objMStatement = new P05_MiniStatement(driver);
 		  objMStatement.MiniStatement(AccountID1);
@@ -128,7 +144,7 @@ public class Customer {
 	  
 	  @Test
 	  public void SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry" + "\n" + Alerts.testCaseDivider, true);
 		  
 		  P03_FundTransfer objFTransfer = new P03_FundTransfer(driver);
 		  objFTransfer.FundTransfer(AccountID1, AccountID2, "100", "Transferred");
@@ -140,49 +156,49 @@ public class Customer {
 		  P06_CustomisedStatement objCStatement = new P06_CustomisedStatement(driver);
 		  objCStatement.CustomisedStatement(AccountID1, "01/01/2018", "12/31/2018", "0", "100");
 		  
-		  P03_FundTransfer objFTransfer1 = new P03_FundTransfer(driver);
-		  objFTransfer1.FundTransfer("37714", AccountID2, "100", "Transferred");
-		  assertEquals(P03_FundTransfer.AlertTitle, "You are not authorize to Transfer Funds from this account!!");
+		  P03_FundTransfer unauthorizedAccountFundTransfer = new P03_FundTransfer(driver);
+		  unauthorizedAccountFundTransfer.FundTransfer("37714", AccountID2, "100", "Transferred");
+		  assertEquals(P03_FundTransfer.AlertTitle, Alerts.unauthorizedAccountFundTransfer);
 		  
-		  P03_FundTransfer objFTransfer2 = new P03_FundTransfer(driver);
-		  objFTransfer2.FundTransfer("11111", AccountID2, "100", "Transferred");
-		  assertEquals(P03_FundTransfer.AlertTitle, "Account 11111 does not exist!!!");
+		  P03_FundTransfer invalidAccountFundTransfer = new P03_FundTransfer(driver);
+		  invalidAccountFundTransfer.FundTransfer("11111", AccountID2, "100", "Transferred");
+		  assertEquals(P03_FundTransfer.AlertTitle, Alerts.invalidAccountFundTransfer);
 		  
-		  P03_FundTransfer objFTransfer3 = new P03_FundTransfer(driver);
-		  objFTransfer3.FundTransfer(AccountID1, AccountID1, "100", "Transferred");
-		  assertEquals(P03_FundTransfer.AlertTitle, "Payers account No and Payees account No Must Not be Same!!!");
+		  P03_FundTransfer sameAccountFundTransfer = new P03_FundTransfer(driver);
+		  sameAccountFundTransfer.FundTransfer(AccountID1, AccountID1, "100", "Transferred");
+		  assertEquals(P03_FundTransfer.AlertTitle, Alerts.sameAccountFundTransfer);
 		  
 	  }
 	  
 	  @Test
 	  public void SC14_SC15_MiniStatement() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC14_SC15_MiniStatement" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC14_SC15_MiniStatement" + "\n" + Alerts.testCaseDivider, true);
 		  
-		  P05_MiniStatement objMStatement = new P05_MiniStatement(driver);
-		  objMStatement.MiniStatement("37714");
-		  assertEquals(P05_MiniStatement.WarningTitle, "You are not authorize to generate statement of this Account!!");
+		  P05_MiniStatement unauthorizedAccountMStatement = new P05_MiniStatement(driver);
+		  unauthorizedAccountMStatement.MiniStatement("37714");
+		  assertEquals(P05_MiniStatement.WarningTitle, Alerts.unauthorizedAccountMStatement);
 		  
-		  P05_MiniStatement objMStatement1 = new P05_MiniStatement(driver);
-		  objMStatement1.MiniStatement("11111");
-		  assertEquals(P05_MiniStatement.WarningTitle, "Account does not exist");
+		  P05_MiniStatement invalidAccountMStatement = new P05_MiniStatement(driver);
+		  invalidAccountMStatement.MiniStatement("11111");
+		  assertEquals(P05_MiniStatement.WarningTitle, Alerts.invalidAccountMStatement);
 		  		  
 	  }
 	  
 	  @Test
 	  public void SC16_to_SC18_CustomisedStatement() throws Exception{
-		  Reporter.log("\n"+"Test Result of SC16_to_SC18_CustomisedStatement" + "\n" + "=============================================================================", true);
+		  Reporter.log("\n"+"Test Result of SC16_to_SC18_CustomisedStatement" + "\n" + Alerts.testCaseDivider, true);
 		  
-		  P06_CustomisedStatement objCStatement = new P06_CustomisedStatement(driver);
-		  objCStatement.CustomisedStatement("37714", "01/01/2018", "12/31/2018", "0", "100");
-		  assertEquals(P06_CustomisedStatement.WarningTitle, "You are not authorize to generate statement of this Account!!");
+		  P06_CustomisedStatement unAuthorizedAccountStatement = new P06_CustomisedStatement(driver);
+		  unAuthorizedAccountStatement.CustomisedStatement("37714", "01/01/2018", "12/31/2018", "0", "100");
+		  assertEquals(P06_CustomisedStatement.WarningTitle, Alerts.unAuthorizedAccountStatement);
 		  
-		  P06_CustomisedStatement objCStatement1 = new P06_CustomisedStatement(driver);
-		  objCStatement1.CustomisedStatement("11111", "01/01/2018", "12/31/2018", "0", "100");
-		  assertEquals(P06_CustomisedStatement.WarningTitle, "Account does not exist");
+		  P06_CustomisedStatement invalidAccountStatement = new P06_CustomisedStatement(driver);
+		  invalidAccountStatement.CustomisedStatement("11111", "01/01/2018", "12/31/2018", "0", "100");
+		  assertEquals(P06_CustomisedStatement.WarningTitle, Alerts.invalidAccountStatement);
 		  
-		  P06_CustomisedStatement objCStatement2 = new P06_CustomisedStatement(driver);
-		  objCStatement2.CustomisedStatement(AccountID1, "01/01/2019", "12/31/2018", "0", "100");
-		  assertEquals(P06_CustomisedStatement.WarningTitle, "FromDate field should be lower than ToDate field!!");
+		  P06_CustomisedStatement invalidDateStatement = new P06_CustomisedStatement(driver);
+		  invalidDateStatement.CustomisedStatement(AccountID1, "01/01/2019", "12/31/2018", "0", "100");
+		  assertEquals(P06_CustomisedStatement.WarningTitle, Alerts.invalidDateStatement);
 		  
 	  }
 	  

@@ -3,26 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestSuite.BankManager">
+      <class name="TestSuite.Customer">
         <methods>
-          <include name="SM04_CreateCustomer"/>
-          <include name="SM24_SM25_Deposit"/>
-          <include name="SM06_to_SM10_DeleteAccount"/>
-          <include name="SM11_SM12_DeleteCustomerWithAccounts"/>
-          <include name="SM36_LoginCustomer"/>
-          <include name="setUp"/>
-          <include name="SM23_EditCustomer"/>
-          <include name="SM34_EditAccount"/>
-          <include name="SM05_NewAccount"/>
-          <include name="SM35_Logout"/>
-          <include name="SM13_to_SM15_DeleteCustomerWithoutAccounts"/>
-          <include name="SM16_to_SM22_FundsTransfer_CustomizedStatement"/>
-          <include name="SM27_to_SM30_Withdrawal_MiniStatement_Balance"/>
-          <include name="SM01_to_SM03_ChangePassword"/>
           <include name="tearDown"/>
-          <include name="SM31_to_SM33_CustomisedStatement"/>
+          <include name="setUp"/>
+          <include name="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry"/>
+          <include name="SC14_SC15_MiniStatement"/>
         </methods>
-      </class> <!-- TestSuite.BankManager -->
+      </class> <!-- TestSuite.Customer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

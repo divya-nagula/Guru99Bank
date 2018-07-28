@@ -25,6 +25,7 @@ public class TestData {
 	public static String mNewPassword = "Welcome@Guru99";
 	public static String Customer1 = "test901@test.com";
 	public static String Customer2 = "test902@test.com";
+	public static String Customer3 = "test907@test.com";
 	public static String cCurrentPassword = "Welcome@1";
 	public static String cNewPassword = "Welcome@1";	
 	

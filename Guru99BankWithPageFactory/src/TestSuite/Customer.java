@@ -29,6 +29,11 @@ import BankManager_PageFactory.*;
 import BankManager_PageFactory.P00_Login;
 import Customer_PageFactory.*;
 import TestData.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+
+//use above import for testing in Headless Browser
 
 public class Customer {
 	  WebDriver driver;
@@ -37,6 +42,8 @@ public class Customer {
 	  P15_Logout objManagerLogout;
 	  P07_Logout objCustomerLogout;
 	  String CustomerID, AccountID1, AccountID2;
+	  ManagerSignup objSignup;
+	  String emailID = TestData.memailID;
 	  
 	  
 	  @BeforeTest
@@ -51,7 +58,15 @@ public class Customer {
 		  	//driver = new HtmlUnitDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(TestData.testURL);
-				  
+			
+			objSignup = new ManagerSignup(driver);
+			
+			objSignup.Signup(emailID);
+			TestData.mUsername = ManagerSignup.credentials[0];
+			TestData.mCurrentPassword = ManagerSignup.credentials[1];
+			
+			driver.get(TestData.testURL);
+
 			//Create Login Page object	
 		  	 objManagerLogin = new BankManager_PageFactory.P00_Login(driver);
 			//login to application
@@ -69,7 +84,7 @@ public class Customer {
 		  
 			P02_NewCustomer objCustomer = new P02_NewCustomer(driver);
 			
-			objCustomer.CreateCustomer(TestData.Customer1);
+			objCustomer.CreateCustomer(TestData.Customer3);
 			P02_NewCustomer.Continue.click();
 			CustomerID = P02_NewCustomer.CustomerID;
 			
@@ -157,7 +172,7 @@ public class Customer {
 		  objCStatement.CustomisedStatement(AccountID1, "01/01/2018", "12/31/2018", "0", "100");
 		  
 		  P03_FundTransfer unauthorizedAccountFundTransfer = new P03_FundTransfer(driver);
-		  unauthorizedAccountFundTransfer.FundTransfer("37714", AccountID2, "100", "Transferred");
+		  unauthorizedAccountFundTransfer.FundTransfer("45980", AccountID2, "100", "Transferred");
 		  assertEquals(P03_FundTransfer.AlertTitle, Alerts.unauthorizedAccountFundTransfer);
 		  
 		  P03_FundTransfer invalidAccountFundTransfer = new P03_FundTransfer(driver);
@@ -175,7 +190,7 @@ public class Customer {
 		  Reporter.log("\n"+"Test Result of SC14_SC15_MiniStatement" + "\n" + Alerts.testCaseDivider, true);
 		  
 		  P05_MiniStatement unauthorizedAccountMStatement = new P05_MiniStatement(driver);
-		  unauthorizedAccountMStatement.MiniStatement("37714");
+		  unauthorizedAccountMStatement.MiniStatement("45980");
 		  assertEquals(P05_MiniStatement.WarningTitle, Alerts.unauthorizedAccountMStatement);
 		  
 		  P05_MiniStatement invalidAccountMStatement = new P05_MiniStatement(driver);
@@ -189,7 +204,7 @@ public class Customer {
 		  Reporter.log("\n"+"Test Result of SC16_to_SC18_CustomisedStatement" + "\n" + Alerts.testCaseDivider, true);
 		  
 		  P06_CustomisedStatement unAuthorizedAccountStatement = new P06_CustomisedStatement(driver);
-		  unAuthorizedAccountStatement.CustomisedStatement("37714", "01/01/2018", "12/31/2018", "0", "100");
+		  unAuthorizedAccountStatement.CustomisedStatement("45980", "01/01/2018", "12/31/2018", "0", "100");
 		  assertEquals(P06_CustomisedStatement.WarningTitle, Alerts.unAuthorizedAccountStatement);
 		  
 		  P06_CustomisedStatement invalidAccountStatement = new P06_CustomisedStatement(driver);

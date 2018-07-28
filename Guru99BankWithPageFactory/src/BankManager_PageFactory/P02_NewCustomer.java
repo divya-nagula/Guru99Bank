@@ -86,7 +86,7 @@ public class P02_NewCustomer {
 		this.PinNo.sendKeys(TestData.PinNo);
 		this.MobileNumber.sendKeys(TestData.MobileNo);
 		this.EmailID.sendKeys(EmailID);
-		this.Password.sendKeys(TestData.mCurrentPassword);
+		this.Password.sendKeys(TestData.cCurrentPassword);
 		this.Submit.click();
 		
 		//Get Confirmation Message

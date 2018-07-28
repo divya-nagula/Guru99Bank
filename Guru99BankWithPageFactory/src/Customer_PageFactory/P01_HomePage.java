@@ -11,22 +11,22 @@ public class P01_HomePage {
 
 	WebDriver driver;
 		
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[2]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[2]/a")
 	public WebElement BalanceEnquiry;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[3]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[3]/a")
 	public WebElement FundTransfer;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[4]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[4]/a")
 	public WebElement ChangePassword;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[5]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[5]/a")
 	public WebElement MiniStatement;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[6]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[6]/a")
 	public WebElement CustomisedStatement;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[7]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[7]/a")
 	public WebElement LogOut;
 	
 	

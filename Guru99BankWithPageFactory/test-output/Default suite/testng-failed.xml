@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.Customer">
+      <class name="TestSuite.BankManager">
         <methods>
-          <include name="SC07_MiniStatement"/>
-          <include name="SC14_SC15_MiniStatement"/>
-          <include name="tearDown"/>
-          <include name="SC04_BalanceEnquiry"/>
-          <include name="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry"/>
-          <include name="SC19_Logout"/>
-          <include name="SC16_to_SC18_CustomisedStatement"/>
+          <include name="SM04_CreateCustomer"/>
+          <include name="SM24_SM25_Deposit"/>
+          <include name="SM06_to_SM10_DeleteAccount"/>
+          <include name="SM11_SM12_DeleteCustomerWithAccounts"/>
+          <include name="SM36_LoginCustomer"/>
           <include name="setUp"/>
-          <include name="SC01_to_SC03_ChangePassword"/>
+          <include name="SM23_EditCustomer"/>
+          <include name="SM34_EditAccount"/>
+          <include name="SM05_NewAccount"/>
+          <include name="SM35_Logout"/>
+          <include name="SM13_to_SM15_DeleteCustomerWithoutAccounts"/>
+          <include name="SM16_to_SM22_FundsTransfer_CustomizedStatement"/>
+          <include name="SM27_to_SM30_Withdrawal_MiniStatement_Balance"/>
+          <include name="SM01_to_SM03_ChangePassword"/>
+          <include name="tearDown"/>
+          <include name="SM31_to_SM33_CustomisedStatement"/>
         </methods>
-      </class> <!-- test.Customer -->
+      </class> <!-- TestSuite.BankManager -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -38,11 +38,11 @@ public class P00_Login {
 	 * @return
 	 */
 	
-	public void loginToGuru99(String strUserName,String strPasword){
+	public void loginToGuru99(String strUserName,String strPassword){
 		//Fill user name
 		this.username.sendKeys(strUserName);
 		//Fill password
-		this.password.sendKeys(strPasword);
+		this.password.sendKeys(strPassword);
 		//Click Login button
 		this.login.click();
 		HomePageTitle = this.driver.getTitle();

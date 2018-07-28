@@ -33,9 +33,11 @@ import TestData.*;
 public class BankManager {
 	
 	  WebDriver driver;
+	  ManagerSignup objSignup;
 	  P00_Login objLogin;
 	  P15_Logout objLogout;
 	  String CustomerID1, CustomerID2, AccountID1, AccountID2;
+	  String emailID = TestData.memailID;
 	  
 	  @BeforeTest
 	  public void setUp(){
@@ -51,6 +53,15 @@ public class BankManager {
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(TestData.testURL);
 				  
+			//Create Manager Login
+			objSignup = new ManagerSignup(driver);
+			
+			objSignup.Signup(emailID);
+			TestData.mUsername = ManagerSignup.credentials[0];
+			TestData.mCurrentPassword = ManagerSignup.credentials[1];
+			
+			driver.get(TestData.testURL);
+			
 			//Create Login Page object	
 		  	 objLogin = new P00_Login(driver);
 			//login to application

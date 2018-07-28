@@ -11,46 +11,46 @@ public class P01_HomePage {
 
 	WebDriver driver;
 		
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[2]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[2]/a")
 	public WebElement NewCustomer;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[3]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[3]/a")
 	public WebElement EditCustomer;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[4]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[4]/a")
 	public WebElement DeleteCustomer;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[5]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[5]/a")
 	public WebElement NewAccount;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[6]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[6]/a")
 	public WebElement EditAccount;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[7]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[7]/a")
 	public WebElement DeleteAccount;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[8]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[8]/a")
 	public WebElement Deposit;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[9]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[9]/a")
 	public WebElement Withdrawal;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[10]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[10]/a")
 	public WebElement FundTransfer;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[11]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[11]/a")
 	public WebElement ChangePassword;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[12]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[12]/a")
 	public WebElement BalanceEnquiry;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[13]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[13]/a")
 	public WebElement MiniStatement;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[14]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[14]/a")
 	public WebElement CustomisedStatement;
 	
-	@FindBy(xpath="/html/body/div[2]/div/ul/li[15]/a")
+	@FindBy(xpath="/html/body/div[4]/div/ul/li[15]/a")
 	public WebElement Logout;
 	
 	

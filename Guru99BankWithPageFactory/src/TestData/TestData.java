@@ -20,8 +20,8 @@ public class TestData {
 	public static String memailID = "divya.nagula@gmail.com";
 	
 	//Login IDs
-	public static String mUsername = ManagerSignup.UserID;
-	public static String mCurrentPassword = ManagerSignup.Password;
+	public static String mUsername = ManagerSignup.credentials[0];
+	public static String mCurrentPassword = ManagerSignup.credentials[1];
 	public static String mNewPassword = "Welcome@Guru99";
 	public static String Customer1 = "test901@test.com";
 	public static String Customer2 = "test902@test.com";
@@ -29,7 +29,7 @@ public class TestData {
 	public static String cNewPassword = "Welcome@1";	
 	
 	//Driver Paths - provide Folder path for the driver(Note: don't put the file name i.e., chromedriver.exe or geckodriver.exe
-	public static String chromeDriverPath = "D:\\Divya\\SeleniumWebDriver\\chromedriver_win32";
+	public static String chromeDriverPath = "D:\\Divya\\SeleniumWebDriver\\chromedriver_win32_1";
 	public static String geckoDriverPath = "D:\\Divya\\SeleniumWebDriver\\geckodriver-v0.19.1-win64";
 	
 	//New Customer Data, need not be unique, so edit if you want to change!

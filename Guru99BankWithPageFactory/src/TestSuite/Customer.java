@@ -8,29 +8,31 @@
 
 package TestSuite;
 
-import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import BankManager_PageFactory.*;
 import BankManager_PageFactory.P00_Login;
-import Customer_PageFactory.*;
-import TestData.*;
+import BankManager_PageFactory.P02_NewCustomer;
+import BankManager_PageFactory.P05_NewAccount;
+import BankManager_PageFactory.P15_Logout;
+import Customer_PageFactory.P02_BalanceEnquiry;
+import Customer_PageFactory.P03_FundTransfer;
+import Customer_PageFactory.P04_ChangePassword;
+import Customer_PageFactory.P05_MiniStatement;
+import Customer_PageFactory.P06_CustomisedStatement;
+import Customer_PageFactory.P07_Logout;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import TestData.Alerts;
+import TestData.TestData;
 
 
 //use above import for testing in Headless Browser

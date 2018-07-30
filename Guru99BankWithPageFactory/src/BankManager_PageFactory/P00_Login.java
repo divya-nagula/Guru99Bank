@@ -63,8 +63,7 @@ public class P00_Login {
 			//Compare error text with expected error value
 			Reporter.log(InvalidCredentials, true);
 			assertEquals(InvalidCredentials, Alerts.InvalidLogin);
-			
-			driver.close();
+					
 		}
 		
 	}

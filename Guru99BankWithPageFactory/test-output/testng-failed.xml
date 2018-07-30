@@ -5,10 +5,16 @@
     <classes>
       <class name="TestSuite.Customer">
         <methods>
+          <include name="SC19_Logout"/>
+          <include name="CreateCustomer_CreateAccounts"/>
+          <include name="SC04_BalanceEnquiry"/>
+          <include name="SC01_to_SC03_ChangePassword"/>
           <include name="tearDown"/>
+          <include name="SC07_MiniStatement"/>
           <include name="setUp"/>
           <include name="SC08_to_SC13_FundTransfer_CustomisedStatement_BalanceEnquiry"/>
           <include name="SC14_SC15_MiniStatement"/>
+          <include name="SC16_to_SC18_CustomisedStatement"/>
         </methods>
       </class> <!-- TestSuite.Customer -->
     </classes>

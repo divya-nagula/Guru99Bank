@@ -71,7 +71,7 @@ public class Customer {
 		  	 objManagerLogin = new BankManager_PageFactory.P00_Login(driver);
 			//login to application
 			
-			objManagerLogin.loginToGuru99(TestData.mUsername,TestData.mCurrentPassword);
+			objManagerLogin.loginToGuru99(TestData.mUsername,"invalid");
 			// go the next page
 		}
 

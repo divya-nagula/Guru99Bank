@@ -9,6 +9,9 @@ public class Alerts {
 	//Test Case Divider
 	public static String testCaseDivider = "=============================================================================";
 	
+	//Login Alert
+	public static final String InvalidLogin = "User or Password is not valid";
+	
 	//Password Related Alert Messages
 	public static final String incorrectOldPassword = "Old Password is incorrect";
 	public static final String passwordChangeSuccessful = "Password is Changed";
